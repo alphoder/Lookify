@@ -1,0 +1,52 @@
+{
+  "source": "videos/pexels_4253333.mp4",
+  "analysed_fps": 5.0,
+  "workers": [
+    {
+      "id": "Person 1",
+      "on_camera_s": 27.6,
+      "first_s": 0.0,
+      "last_s": 27.4,
+      "compliance": {
+        "head cover": 0,
+        "gloves": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 2",
+      "on_camera_s": 8.6,
+      "first_s": 5.6,
+      "last_s": 23.0,
+      "compliance": {
+        "head cover": 0,
+        "gloves": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    }
+  ],
+  "events": [
+    {
+      "t": 3.0,
+      "worker": "Person 1",
+      "event": "missing head cover"
+    },
+    {
+      "t": 3.0,
+      "worker": "Person 1",
+      "event": "missing gloves"
+    },
+    {
+      "t": 17.0,
+      "worker": "Person 2",
+      "event": "missing head cover"
+    },
+    {
+      "t": 17.0,
+      "worker": "Person 2",
+      "event": "missing gloves"
+    }
+  ]
+}

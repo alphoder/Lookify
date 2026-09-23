@@ -1,0 +1,8 @@
+# ByteTrack tuned for 5 fps CCTV: people move further between frames and hide behind counters
+tracker_type: bytetrack
+track_high_thresh: 0.25
+track_low_thresh: 0.1
+new_track_thresh: 0.5   # default 0.25: flickery partial detections spawned new IDs
+track_buffer: 150       # default 30: keep a hidden worker's ID for ~30 s at 5 fps
+match_thresh: 0.9       # default 0.8: accept lower overlap, people move more per sampled frame
+fuse_score: True

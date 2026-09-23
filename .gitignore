@@ -1,0 +1,15 @@
+# secrets (Vercel AI Gateway key lives in .env.local)
+.env*
+# deps / build
+node_modules
+.next
+.vercel
+.venv
+__pycache__
+# large or third-party media: regenerate models, fetch videos locally (see README)
+kitchen-demo/models/
+kitchen-demo/videos/
+# local tooling
+.DS_Store
+.claude/
+.impeccable/

@@ -1,0 +1,25 @@
+{
+  "source": "videos/pexels_36197582.mp4",
+  "analysed_fps": 5.0,
+  "workers": [
+    {
+      "id": "Person 1",
+      "on_camera_s": 5.2,
+      "first_s": 0.0,
+      "last_s": 5.0,
+      "compliance": {
+        "head cover": 100,
+        "gloves": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    }
+  ],
+  "events": [
+    {
+      "t": 2.8,
+      "worker": "Person 1",
+      "event": "missing gloves"
+    }
+  ]
+}

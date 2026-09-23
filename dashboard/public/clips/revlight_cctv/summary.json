@@ -1,0 +1,166 @@
+{
+  "source": "videos/revlight_cctv.mp4",
+  "analysed_fps": 5.0,
+  "workers": [
+    {
+      "id": "Person 1",
+      "on_camera_s": 12.4,
+      "first_s": 0.0,
+      "last_s": 12.2,
+      "compliance": {
+        "head cover": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 12",
+      "on_camera_s": 41.4,
+      "first_s": 5.2,
+      "last_s": 48.8,
+      "compliance": {
+        "head cover": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 12.0
+    },
+    {
+      "id": "Person 13",
+      "on_camera_s": 38.4,
+      "first_s": 5.6,
+      "last_s": 48.8,
+      "compliance": {
+        "head cover": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 14",
+      "on_camera_s": 17.6,
+      "first_s": 11.4,
+      "last_s": 47.0,
+      "compliance": {
+        "head cover": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 15",
+      "on_camera_s": 33.2,
+      "first_s": 14.2,
+      "last_s": 48.8,
+      "compliance": {
+        "head cover": 23
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 25",
+      "on_camera_s": 7.0,
+      "first_s": 38.4,
+      "last_s": 48.8,
+      "compliance": {
+        "head cover": 0
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 29",
+      "on_camera_s": 3.2,
+      "first_s": 42.4,
+      "last_s": 45.4,
+      "compliance": {
+        "head cover": 75
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    },
+    {
+      "id": "Person 6",
+      "on_camera_s": 30.6,
+      "first_s": 3.8,
+      "last_s": 48.8,
+      "compliance": {
+        "head cover": 95
+      },
+      "phone_s": 0.0,
+      "idle_s": 0.0
+    }
+  ],
+  "events": [
+    {
+      "t": 3.0,
+      "worker": "Person 1",
+      "event": "missing head cover"
+    },
+    {
+      "t": 9.0,
+      "worker": "Person 12",
+      "event": "missing head cover"
+    },
+    {
+      "t": 9.0,
+      "worker": "Person 13",
+      "event": "missing head cover"
+    },
+    {
+      "t": 14.8,
+      "worker": "Person 14",
+      "event": "missing head cover"
+    },
+    {
+      "t": 17.2,
+      "worker": "Person 15",
+      "event": "missing head cover"
+    },
+    {
+      "t": 19.6,
+      "worker": "Person 15",
+      "event": "wearing head cover"
+    },
+    {
+      "t": 22.6,
+      "worker": "Person 12",
+      "event": "started idle"
+    },
+    {
+      "t": 23.4,
+      "worker": "Person 12",
+      "event": "stopped idle"
+    },
+    {
+      "t": 24.2,
+      "worker": "Person 15",
+      "event": "missing head cover"
+    },
+    {
+      "t": 30.4,
+      "worker": "Person 15",
+      "event": "wearing head cover"
+    },
+    {
+      "t": 33.4,
+      "worker": "Person 15",
+      "event": "missing head cover"
+    },
+    {
+      "t": 35.2,
+      "worker": "Person 12",
+      "event": "started idle"
+    },
+    {
+      "t": 45.0,
+      "worker": "Person 25",
+      "event": "missing head cover"
+    },
+    {
+      "t": 46.4,
+      "worker": "Person 12",
+      "event": "stopped idle"
+    }
+  ]
+}
