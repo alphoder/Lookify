@@ -1,15 +1,27 @@
 {
   "source": "videos/sim_uniform_ids.mp4",
   "analysed_fps": 5.0,
+  "live": false,
+  "t_now": null,
+  "headcount": [
+    [
+      0.0,
+      2
+    ]
+  ],
   "workers": [
     {
       "id": "W01",
       "on_camera_s": 7.8,
       "first_s": 0.2,
       "last_s": 7.6,
+      "in_kitchen_s": 7.4,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 87,
-        "gloves": 0
+        "head cover": 100,
+        "gloves": 0,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -19,9 +31,13 @@
       "on_camera_s": 7.6,
       "first_s": 0.2,
       "last_s": 7.6,
+      "in_kitchen_s": 7.4,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0,
-        "gloves": 0
+        "head cover": null,
+        "gloves": null,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -37,21 +53,6 @@
       "t": 0.2,
       "worker": "W02",
       "event": "identified by uniform badge"
-    },
-    {
-      "t": 3.0,
-      "worker": "W01",
-      "event": "missing gloves"
-    },
-    {
-      "t": 3.6,
-      "worker": "W02",
-      "event": "missing head cover"
-    },
-    {
-      "t": 3.6,
-      "worker": "W02",
-      "event": "missing gloves"
     }
   ]
 }

@@ -1,0 +1,4 @@
+# client footage and uploads stay on the analysis machine: never deploy them
+public/clips/hob_*
+public/clips/upload_*
+.env*

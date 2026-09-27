@@ -1,14 +1,42 @@
 {
   "source": "videos/revlight_cctv.mp4",
   "analysed_fps": 5.0,
+  "live": false,
+  "t_now": null,
+  "headcount": [
+    [
+      0.0,
+      1
+    ],
+    [
+      5.6,
+      2
+    ],
+    [
+      12.0,
+      3
+    ],
+    [
+      18.4,
+      4
+    ],
+    [
+      48.8,
+      5
+    ]
+  ],
   "workers": [
     {
       "id": "Person 1",
       "on_camera_s": 12.4,
       "first_s": 0.0,
       "last_s": 12.2,
+      "in_kitchen_s": 12.2,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0
+        "head cover": null,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -18,8 +46,12 @@
       "on_camera_s": 41.4,
       "first_s": 5.2,
       "last_s": 48.8,
+      "in_kitchen_s": 43.6,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0
+        "head cover": 0,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 12.0
@@ -29,8 +61,12 @@
       "on_camera_s": 38.4,
       "first_s": 5.6,
       "last_s": 48.8,
+      "in_kitchen_s": 43.2,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0
+        "head cover": 0,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -40,8 +76,12 @@
       "on_camera_s": 17.6,
       "first_s": 11.4,
       "last_s": 47.0,
+      "in_kitchen_s": 35.6,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0
+        "head cover": null,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -51,8 +91,12 @@
       "on_camera_s": 33.2,
       "first_s": 14.2,
       "last_s": 48.8,
+      "in_kitchen_s": 34.6,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 23
+        "head cover": 100,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -62,8 +106,12 @@
       "on_camera_s": 7.0,
       "first_s": 38.4,
       "last_s": 48.8,
+      "in_kitchen_s": 10.4,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0
+        "head cover": null,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -73,8 +121,12 @@
       "on_camera_s": 3.2,
       "first_s": 42.4,
       "last_s": 45.4,
+      "in_kitchen_s": 3.0,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 75
+        "head cover": 100,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -84,8 +136,12 @@
       "on_camera_s": 30.6,
       "first_s": 3.8,
       "last_s": 48.8,
+      "in_kitchen_s": 45.0,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 95
+        "head cover": 100,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -93,34 +149,19 @@
   ],
   "events": [
     {
-      "t": 3.0,
+      "t": 12.2,
       "worker": "Person 1",
-      "event": "missing head cover"
+      "event": "left the kitchen"
     },
     {
-      "t": 9.0,
-      "worker": "Person 12",
-      "event": "missing head cover"
-    },
-    {
-      "t": 9.0,
+      "t": 17.4,
       "worker": "Person 13",
       "event": "missing head cover"
     },
     {
-      "t": 14.8,
-      "worker": "Person 14",
+      "t": 18.4,
+      "worker": "Person 12",
       "event": "missing head cover"
-    },
-    {
-      "t": 17.2,
-      "worker": "Person 15",
-      "event": "missing head cover"
-    },
-    {
-      "t": 19.6,
-      "worker": "Person 15",
-      "event": "wearing head cover"
     },
     {
       "t": 22.6,
@@ -133,29 +174,9 @@
       "event": "stopped idle"
     },
     {
-      "t": 24.2,
-      "worker": "Person 15",
-      "event": "missing head cover"
-    },
-    {
-      "t": 30.4,
-      "worker": "Person 15",
-      "event": "wearing head cover"
-    },
-    {
-      "t": 33.4,
-      "worker": "Person 15",
-      "event": "missing head cover"
-    },
-    {
       "t": 35.2,
       "worker": "Person 12",
       "event": "started idle"
-    },
-    {
-      "t": 45.0,
-      "worker": "Person 25",
-      "event": "missing head cover"
     },
     {
       "t": 46.4,

@@ -1,15 +1,27 @@
 {
   "source": "videos/pexels_36197582.mp4",
   "analysed_fps": 5.0,
+  "live": false,
+  "t_now": null,
+  "headcount": [
+    [
+      0.0,
+      1
+    ]
+  ],
   "workers": [
     {
       "id": "Person 1",
       "on_camera_s": 5.2,
       "first_s": 0.0,
       "last_s": 5.0,
+      "in_kitchen_s": 5.0,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
         "head cover": 100,
-        "gloves": 0
+        "gloves": 0,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -17,7 +29,7 @@
   ],
   "events": [
     {
-      "t": 2.8,
+      "t": 4.8,
       "worker": "Person 1",
       "event": "missing gloves"
     }

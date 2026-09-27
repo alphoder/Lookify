@@ -1,15 +1,27 @@
 {
   "source": "videos/pexels_3768941.mp4",
   "analysed_fps": 5.0,
+  "live": false,
+  "t_now": null,
+  "headcount": [
+    [
+      0.0,
+      2
+    ]
+  ],
   "workers": [
     {
       "id": "Person 1",
       "on_camera_s": 7.8,
       "first_s": 0.0,
       "last_s": 7.6,
+      "in_kitchen_s": 7.6,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 77,
-        "gloves": 0
+        "head cover": 100,
+        "gloves": 0,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -19,9 +31,13 @@
       "on_camera_s": 7.8,
       "first_s": 0.0,
       "last_s": 7.6,
+      "in_kitchen_s": 7.6,
+      "away_s": 0,
+      "breaks": [],
       "compliance": {
-        "head cover": 0,
-        "gloves": 0
+        "head cover": null,
+        "gloves": 100,
+        "proper shoes": null
       },
       "phone_s": 0.0,
       "idle_s": 0.0
@@ -29,18 +45,8 @@
   ],
   "events": [
     {
-      "t": 3.0,
+      "t": 5.0,
       "worker": "Person 1",
-      "event": "missing gloves"
-    },
-    {
-      "t": 3.0,
-      "worker": "Person 2",
-      "event": "missing head cover"
-    },
-    {
-      "t": 3.0,
-      "worker": "Person 2",
       "event": "missing gloves"
     }
   ]

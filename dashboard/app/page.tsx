@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { CAN_ANALYZE, getClip, listClips, title } from "@/lib/clips";
 import ClipView from "./clip-view";
+import ModelCard from "./model-card";
 import Upload from "./upload";
 
 const STEPS = [
   ["Camera", "Existing CCTV, sampled at 5 fps"],
-  ["Detect", "People, caps, hairnets, gloves, masks, phones"],
+  ["Detect", "People, caps, hairnets, gloves, shoes, phones"],
   ["Track", "Same person followed frame to frame"],
   ["Identify", "Uniform badge → worker ID (no face data)"],
   ["Rules", "Kitchen SOP: what's required, what's a violation"],
-  ["Report", "Live alerts, timeline, compliance per worker"],
+  ["Report", "Alerts, attendance and breaks, compliance per worker"],
 ];
 
 export default async function Page(props: PageProps<"/">) {
@@ -63,6 +64,8 @@ export default async function Page(props: PageProps<"/">) {
           <p className="text-zinc-400">No analysed clips yet. Upload one to start.</p>
         )}
       </div>
+
+      <ModelCard />
     </div>
   );
 }

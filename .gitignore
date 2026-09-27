@@ -13,3 +13,13 @@ kitchen-demo/videos/
 .DS_Store
 .claude/
 .impeccable/
+# client footage (HOB staff): demo locally only, never commit or deploy
+kitchen-demo/videos/
+dashboard/public/clips/hob_*/
+dashboard/public/clips/upload_*/
+# training data + HOB snapshots: local only
+kitchen-demo/data/
+kitchen-demo/runs/
+kitchen-demo/runs_gear.log
+# base weights downloaded by ultralytics
+kitchen-demo/*.pt

@@ -12,12 +12,18 @@ export const SAFE_NAME = /^[\w-]+$/;
 export type Summary = {
   source: string;
   analysed_fps: number;
+  headcount: [number, number][];
+  live?: boolean; // engine still running: dashboard polls /api/live
+  t_now?: number | null;
   workers: {
     id: string;
     on_camera_s: number;
     first_s: number;
     last_s: number;
-    compliance: Record<string, number>;
+    in_kitchen_s: number;
+    away_s: number;
+    breaks: [number, number][];
+    compliance: Record<string, number | null>; // null = never visible (e.g. feet hidden)
     phone_s: number;
     idle_s: number;
   }[];

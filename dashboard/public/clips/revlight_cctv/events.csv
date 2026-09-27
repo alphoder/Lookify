@@ -1,15 +1,8 @@
 time_s,worker,event
-3.0,Person 1,missing head cover
-9.0,Person 12,missing head cover
-9.0,Person 13,missing head cover
-14.8,Person 14,missing head cover
-17.2,Person 15,missing head cover
-19.6,Person 15,wearing head cover
+12.2,Person 1,left the kitchen
+17.4,Person 13,missing head cover
+18.4,Person 12,missing head cover
 22.6,Person 12,started idle
 23.4,Person 12,stopped idle
-24.2,Person 15,missing head cover
-30.4,Person 15,wearing head cover
-33.4,Person 15,missing head cover
 35.2,Person 12,started idle
-45.0,Person 25,missing head cover
 46.4,Person 12,stopped idle
