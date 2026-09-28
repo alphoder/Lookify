@@ -16,6 +16,7 @@ function say(e: string) {
   if (verb === "missing") return { tone: "bad", text: `isn't wearing ${item}` };
   if (verb === "wearing") return { tone: "good", text: `put on ${item} ✓` };
   if (e === "left the kitchen") return { tone: "warn", text: "left the kitchen" };
+  if (e === "camera changed") return { tone: "info", text: "view switched to another camera" };
   if (verb === "back") return { tone: "info", text: e.replace("back in the kitchen after", "is back in the kitchen, away") };
   if (e === "started using phone") return { tone: "bad", text: "is using a phone" };
   if (e === "stopped using phone") return { tone: "good", text: "put the phone away" };

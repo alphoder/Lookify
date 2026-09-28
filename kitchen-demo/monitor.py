@@ -35,6 +35,9 @@ CONF = {"person": 0.4, "head": 0.3, "glove": 0.35, "face mask": 0.35, "mobile ph
 WINDOW_S = 15       # PPE status = majority over the last N s: a supervisor watches, not glances
 SETTLE_S = 5        # a worker must be tracked this long before we report on them
 MIN_KNOWN = 5       # clear sightings needed before calling compliant/violation; fewer -> unknown
+# camera switch = whole picture changes at once (mean abs change of a 64x36 grey thumbnail).
+# Measured: CCTV motion < 10, handheld phone video < 40, iVMS camera switch >= 52.
+CUT_DIFF = 45
 # trained gear model (train.py): class -> (check, compliant?). Both sides are learned, so
 # "no hairnet" is seen, not inferred from a missed detection; seeing neither -> unknown.
 GEAR = {"hairnet": ("head", True), "no_hairnet": ("head", False), "glove": ("glove", True),
@@ -221,13 +224,14 @@ def main():
     recent = deque(maxlen=max(1, int(WINDOW_S * fps)))  # people per frame, for a steady headcount
     # keyed by worker ID, not track: a re-tracked W01 stays one row / one alert stream
     stats = defaultdict(lambda: {"seen": 0, "bad": defaultdict(int), "checked": defaultdict(int),
-                                 "first": None, "last": 0, "out": False, "breaks": []})
+                                 "first": None, "last": 0, "out": False, "muted": False, "breaks": []})
     logged = {}
 
     def log(t, w, e):
         events.append((t, w, e))
 
     i, t0, written, last_report, last_snap = -1, time.time(), 0, 0.0, -1e9
+    prev_thumb, id_base, max_tid, last_cut = None, 0, 0, -1e9
     snap_dir = Path(__file__).parent / "data/snapshots" / name
     if a.snapshots:
         snap_dir.mkdir(parents=True, exist_ok=True)
@@ -269,6 +273,23 @@ def main():
             d = [float(v) for v in a.door.split(",")]
             pa, pb = (d[0] * W, d[1] * H), (d[2] * W, d[3] * H)
 
+        # camera switched (iVMS / screen capture): new view, new people. Reset tracking instead of
+        # reporting everyone as "left the kitchen"; keep IDs unique across views with an offset.
+        thumb = cv2.resize(gray, (64, 36), interpolation=cv2.INTER_AREA).astype(np.float32)
+        if prev_thumb is not None and float(np.abs(thumb - prev_thumb).mean()) > CUT_DIFF:
+            if getattr(model, "predictor", None) and getattr(model.predictor, "trackers", None):
+                model.predictor.trackers[0].reset()
+            id_base = max_tid
+            for st in stats.values():
+                if not st["out"]:
+                    st["out"] = st["muted"] = True  # not in view any more, but they didn't walk out
+            recent.clear()
+            prev_gray = None
+            if t - last_cut > 2:  # one message per switch (it spans a black + a grey frame)
+                log(t, "Camera", "camera changed")
+            last_cut = t
+        prev_thumb = thumb
+
         r = model.track(frame, persist=True, tracker=str(Path(__file__).with_name("tracker.yaml")), conf=0.2, verbose=False)[0]
         people, items = [], []
         for box, c, p, tid in zip(r.boxes.xyxy.tolist(), r.boxes.cls.tolist(), r.boxes.conf.tolist(),
@@ -280,7 +301,8 @@ def main():
             if key == "person":
                 feet = ((box[0] + box[2]) / 2 / W, box[3] / H)
                 if tid is not None and not any(inside(feet, r) for r in ignore):
-                    people.append((int(tid), box))
+                    people.append((int(tid) + id_base, box))
+                    max_tid = max(max_tid, int(tid) + id_base)
             else:
                 items.append((key, box))
         recent.append(len(people))
@@ -344,9 +366,10 @@ def main():
             wid = w.name or (f"W{w.aruco:02d}" if w.aruco is not None else f"Person {tid}")
             st = stats[wid]
             if st["out"]:  # was away from every camera long enough to count as a break
-                st["breaks"].append((st["last"], t))
-                st["out"] = False
-                log(t, wid, f"back in the kitchen after {dur(t - st['last'])}")
+                if not st["muted"]:  # muted = only out of view because the camera switched
+                    st["breaks"].append((st["last"], t))
+                    log(t, wid, f"back in the kitchen after {dur(t - st['last'])}")
+                st["out"] = st["muted"] = False
             st["seen"] += 1
             st["first"] = t if st["first"] is None else st["first"]
             st["last"] = t
@@ -475,7 +498,7 @@ def report(out, stats, events, headcount, required, fps, source, t_now=None):
             "idle_s": round(bad["idle"] / fps, 1),
         })
     kept = {w["id"] for w in workers}
-    events = [e for e in events if e[1] in kept]
+    events = [e for e in events if e[1] in kept or e[1] == "Camera"]  # drop ghost tracks, keep switches
     with open(out / "events.csv", "w", newline="") as f:
         cw = csv.writer(f)
         cw.writerow(["time_s", "worker", "event"])

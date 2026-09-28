@@ -31,6 +31,9 @@ export type Summary = {
 };
 
 const TITLES: Record<string, string> = {
+  client_cam04: "HOB kitchen · Camera 04",
+  client_cam2: "HOB kitchen · Camera 2",
+  client_cam03: "HOB kitchen · Camera 03",
   revlight_cctv: "Real CCTV · restaurant counter",
   sim_uniform_ids: "Uniform ID badges (simulated)",
   pexels_3768941: "Restaurant kitchen · 2 chefs",
@@ -42,8 +45,9 @@ export const title = (name: string) => TITLES[name] ?? name.replace(/[_-]+/g, " 
 export async function listClips() {
   const dirs = await readdir(OUTPUT_DIR, { withFileTypes: true }).catch(() => []);
   const names = dirs.filter((d) => d.isDirectory() && SAFE_NAME.test(d.name)).map((d) => d.name);
-  // real CCTV first (most convincing), then the ID demo, then the rest
-  const order = (n: string) => ["revlight_cctv", "sim_uniform_ids"].indexOf(n) >>> 0;
+  // the client's own kitchen first, then other real CCTV, then the ID demo, then the rest
+  const order = (n: string) =>
+    ["client_cam04", "client_cam2", "client_cam03", "revlight_cctv", "sim_uniform_ids"].indexOf(n) >>> 0;
   return names.sort((a, b) => order(a) - order(b) || a.localeCompare(b));
 }
 

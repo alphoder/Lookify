@@ -64,16 +64,16 @@ export default function ModelCard() {
         </div>
 
         <div>
-          <p className="text-sm font-medium">On real client CCTV (checked by a person)</p>
-          <p className="text-xs text-zinc-500">64 worker sightings from overhead cameras, before vs after training.</p>
+          <p className="text-sm font-medium">On the client&apos;s own CCTV</p>
+          <p className="text-xs text-zinc-500">Checked against the kitchen&apos;s own facts: hairnets on, no gloves, slippers.</p>
           <dl className="mt-3 space-y-2 text-sm">
-            <div className="flex justify-between"><dt>Wrong or guessed alerts</dt><dd className="font-mono">108 → <b className="text-emerald-400">1</b></dd></div>
-            <div className="flex justify-between"><dt>Hairnets correctly recognised</dt><dd className="font-mono">1 → 3 <span className="text-zinc-500">of 45 visible</span></dd></div>
-            <div className="flex justify-between"><dt>When unsure</dt><dd className="text-zinc-300">says &quot;not visible&quot;, never guesses</dd></div>
+            <div className="flex justify-between"><dt>Full-screen camera checks</dt><dd className="font-mono"><b className="text-emerald-400">11</b> of 12 right</dd></div>
+            <div className="flex justify-between"><dt>Wrong answers</dt><dd className="font-mono text-emerald-400">0</dd></div>
+            <div className="flex justify-between"><dt>Small 4-camera grid: false alerts</dt><dd className="font-mono">108 → 1</dd></div>
           </dl>
           <p className="mt-3 text-xs text-zinc-500">
-            It no longer raises false alarms, but on small overhead views it is still too cautious. Tuning on the
-            client&apos;s own footage is what closes this gap.
+            When a head, hand or foot isn&apos;t clearly visible it says &quot;not visible&quot; instead of guessing. Far or
+            tiny views stay mostly &quot;not visible&quot; until tuned on the client&apos;s footage.
           </p>
         </div>
       </div>

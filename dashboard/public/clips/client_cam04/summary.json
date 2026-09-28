@@ -1,46 +1,42 @@
 {
-  "source": "videos/pexels_4253333.mp4",
-  "analysed_fps": 5.0,
+  "source": "videos/client_cam04.mp4",
+  "analysed_fps": 4.7,
   "live": false,
   "t_now": null,
   "headcount": [
     [
       0.0,
-      1
-    ],
-    [
-      26.4,
       2
     ]
   ],
   "workers": [
     {
       "id": "Person 1",
-      "on_camera_s": 27.6,
+      "on_camera_s": 50.0,
       "first_s": 0.0,
-      "last_s": 27.4,
-      "in_kitchen_s": 27.4,
+      "last_s": 49.8,
+      "in_kitchen_s": 49.8,
       "away_s": 0,
       "breaks": [],
       "compliance": {
-        "head cover": null,
+        "head cover": 100,
         "gloves": 0,
-        "proper shoes": null
+        "proper shoes": 0
       },
       "phone_s": 0.0,
       "idle_s": 0.0
     },
     {
       "id": "Person 2",
-      "on_camera_s": 8.6,
-      "first_s": 5.6,
-      "last_s": 23.0,
-      "in_kitchen_s": 17.4,
+      "on_camera_s": 50.0,
+      "first_s": 0.0,
+      "last_s": 49.8,
+      "in_kitchen_s": 49.8,
       "away_s": 0,
       "breaks": [],
       "compliance": {
-        "head cover": null,
-        "gloves": 100,
+        "head cover": 100,
+        "gloves": 0,
         "proper shoes": null
       },
       "phone_s": 0.0,
@@ -49,8 +45,18 @@
   ],
   "events": [
     {
-      "t": 23.4,
+      "t": 4.9,
       "worker": "Person 1",
+      "event": "missing proper shoes"
+    },
+    {
+      "t": 8.7,
+      "worker": "Person 1",
+      "event": "missing gloves"
+    },
+    {
+      "t": 8.9,
+      "worker": "Person 2",
       "event": "missing gloves"
     }
   ]
