@@ -8,7 +8,7 @@ const STEPS = [
   ["Camera", "Existing CCTV, sampled at 5 fps"],
   ["Detect", "People, caps, hairnets, gloves, shoes, phones"],
   ["Track", "Same person followed frame to frame"],
-  ["Identify", "Uniform badge → worker ID (no face data)"],
+  ["Identify", "Face recognised at entry → employee ID in the ERP"],
   ["Rules", "Kitchen SOP: what's required, what's a violation"],
   ["Report", "Alerts, attendance and breaks, compliance per worker"],
 ];
@@ -39,8 +39,8 @@ export default async function Page(props: PageProps<"/">) {
         ))}
       </ol>
 
-      <div className="grid gap-6 lg:grid-cols-[240px_1fr]">
-        <aside className="space-y-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[240px_minmax(0,1fr)]">
+        <aside className="min-w-0 space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Camera clips</p>
           <nav className="flex gap-2 overflow-x-auto lg:flex-col">
             {clips.map((c) => (

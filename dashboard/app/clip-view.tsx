@@ -86,8 +86,8 @@ export default function ClipView({ clip, summary: initial }: { clip: string; sum
   };
 
   return (
-    <div className="grid min-w-0 gap-4 xl:grid-cols-[1fr_340px]">
-      <div className="min-w-0 space-y-4">
+    <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="order-1 min-w-0 xl:col-start-1">  {/* phone order: video, chat, attendance, ranking */}
         {live ? (
           <div className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element -- raw per-second frames, nothing to optimise */}
@@ -110,15 +110,17 @@ export default function ClipView({ clip, summary: initial }: { clip: string; sum
             className="max-h-[62vh] w-full rounded-xl border border-zinc-800 bg-black object-contain"
           />
         )}
+      </div>
 
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900/60">
+        <section className="order-3 rounded-xl border border-zinc-800 bg-zinc-900/60 xl:col-start-1">
           <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-zinc-800 px-4 py-3">
             <h2 className="font-medium">Attendance</h2>
             <span className="text-sm">
               <b className="text-lg">{inKitchen}</b> <span className="text-zinc-400">in kitchen · {visible} visible on camera now</span>
             </span>
           </header>
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[22rem] text-sm">
             <thead className="text-left text-xs text-zinc-500">
               <tr>
                 <th className="px-4 py-2 font-normal">Worker</th>
@@ -150,10 +152,11 @@ export default function ClipView({ clip, summary: initial }: { clip: string; sum
               ))}
             </tbody>
           </table>
+          </div>
         </section>
 
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900/60">
-          <header className="flex items-baseline justify-between border-b border-zinc-800 px-4 py-3">
+        <section className="order-4 rounded-xl border border-zinc-800 bg-zinc-900/60 xl:col-start-1">
+          <header className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-zinc-800 px-4 py-3">
             <h2 className="font-medium">Worker ranking</h2>
             <span className="text-xs text-zinc-500">score = % of on-camera time compliant · live</span>
           </header>
@@ -179,9 +182,9 @@ export default function ClipView({ clip, summary: initial }: { clip: string; sum
             ))}
           </ol>
         </section>
-      </div>
 
-      <section className="flex max-h-[calc(62vh+14rem)] min-h-80 flex-col rounded-xl border border-zinc-800 bg-zinc-900/60">
+
+      <section className="order-2 flex max-h-[55vh] min-h-64 flex-col rounded-xl border border-zinc-800 bg-zinc-900/60 xl:col-start-2 xl:row-span-3 xl:row-start-1 xl:max-h-[calc(62vh+14rem)] xl:min-h-80">
         <header className="flex items-center gap-2 border-b border-zinc-800 px-4 py-3">
           <span className="size-2 animate-pulse rounded-full bg-red-500" />
           <h2 className="font-medium">Kitchen monitor</h2>
